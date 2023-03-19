@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  db:
+    image: mongo:5
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGODB_DATABASE: recylink
+    volumes:
+      - ./data/db:/data/db
+
+  recylinkapp:
+    depends_on:
+      - db
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: nest-graphql
+    container_name: AnylistApp
+    restart: always # reiniciar el contenedor si se detiene
+    ports:
+      - "${PORT}:${PORT}"
+
+    environment:
+      JWT_SECRET: ${JWT_SECRET}
+      PORT: ${PORT}

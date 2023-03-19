@@ -1,0 +1,19 @@
+# OS
+.DS_Store
+#front-end
+/frontend-recylink/dist
+/frontend-recylink/node_modules
+/frontend-recylink/*.log
+/frontend-recylink/.vscode
+/frontend-recylink/.DS_Store
+/frontend-recylink/.git
+
+
+#back-end
+/recylink-nestjs/node_modules
+/recylink-nestjs/*.log
+/recylink-nestjs/.vscode
+/recylink-nestjs/dist
+/recylink-nestjs/converge
+/recylink-nestjs/.DS_Store
+/recylink-nestjs/.git

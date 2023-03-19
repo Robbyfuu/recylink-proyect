@@ -1,0 +1,80 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type CarsBrand {
+  _id: ID!
+  name: String!
+}
+
+type ModelsCar {
+  _id: ID!
+  nameModel: String!
+  brand: CarsBrand!
+}
+
+type User {
+  _id: ID!
+  fullName: String!
+  email: String!
+  password: String!
+  isActive: Boolean!
+}
+
+type AuthResponse {
+  token: String!
+  user: User!
+}
+
+type Query {
+  carsBrands: [CarsBrand!]!
+  carsBrand(id: ID!): CarsBrand!
+  modelsCars: [ModelsCar!]!
+  modelsCar(id: ID!): ModelsCar!
+  users: [User!]!
+  user(id: ID!): User!
+  revalidate: AuthResponse!
+}
+
+type Mutation {
+  createCarsBrand(createCarsBrandInput: CreateCarsBrandInput!): CarsBrand!
+  updateCarsBrand(updateCarsBrandInput: UpdateCarsBrandInput!): CarsBrand!
+  removeCarsBrand(id: ID!): CarsBrand!
+  createModelsCar(createModelsCarInput: CreateModelsCarInput!): ModelsCar!
+  updateModelsCar(updateModelsCarInput: UpdateModelsCarInput!): ModelsCar!
+  removeModelsCar(id: ID!): ModelsCar!
+  login(loginInput: LoginInput!): AuthResponse!
+  logout: String!
+  register(registerInput: RegisterInput!): AuthResponse!
+}
+
+input CreateCarsBrandInput {
+  name: String!
+}
+
+input UpdateCarsBrandInput {
+  name: String!
+  _id: ID!
+}
+
+input CreateModelsCarInput {
+  nameModel: String!
+  brand: ID!
+}
+
+input UpdateModelsCarInput {
+  nameModel: String!
+  brand: ID!
+  _id: ID!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+input RegisterInput {
+  fullName: String!
+  email: String!
+  password: String!
+}

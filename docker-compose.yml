@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  recylinkapp:
+    depends_on:
+      - db
+    build: 
+      context: ./recylink-nestjs
+      dockerfile: Dockerfile
+    image: nest-graphql
+    container_name: RecylinkApp
+    restart: always # reiniciar el contenedor si se detiene
+    ports:
+      - "${PORT}:${PORT}"
+    environment:
+      JWT_SECRET: ${JWT_SECRET}
+      PORT: ${PORT}
+      MONGODB: ${MONGODB}
+  recylinkVite:
+    depends_on:
+      - recylinkapp
+    build:
+      context: ./frontend-recylink
+      dockerfile: Dockerfile
+    image: recylink-vite-react-ts
+    container_name: RecylinkVite-ReactTS
+    restart: always
+    ports:
+      - 80:80
+
+  db:
+    image: mongo:5
+    container_name: recylink-db
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGODB_DATABASE: recylink
+    volumes:
+      - ./recylink-nestjs/data/db:/data/db
