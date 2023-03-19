@@ -37,4 +37,4 @@ services:
     environment:
       MONGODB_DATABASE: recylink
     volumes:
-      - ./recylink-nestjs/data/db:/data/db
+      - ./data/db:/data/db

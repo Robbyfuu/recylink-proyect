@@ -106,7 +106,7 @@ export const CreateOrUpdateModelCar: React.FC<Props> = ({
       <div className="container">
         <Row>
           <Col span={24} style={{ textAlign: "center" }}>
-            <h1>{keyTab === "1" ? "Crear Marca" : "Actualizar Marca"}</h1>
+            <h1>{keyTab === "1" ? "Crear Modelo" : "Actualizar Modelo"}</h1>
           </Col>
         </Row>
         <Row className="mt-3">
