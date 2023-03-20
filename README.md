@@ -51,7 +51,7 @@ para ejecutar las querys de graphql, se debe ingresar a la siguiente url
 http://localhost:3000/graphql
 ```
 PD: debes agregar un header de autorizacion con el token generado en el login o registrarse
-Ejemplo:
+Ejemplo: (el token debe ingresarse sin <>)
 ```
 Authorization = Bearer <token>
 
