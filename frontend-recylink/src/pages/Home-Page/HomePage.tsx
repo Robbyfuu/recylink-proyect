@@ -21,12 +21,12 @@ export const HomePage: React.FC = () => {
   const [brandName, setBrandName] = useState("");
   const navigate = useNavigate();
   const [carsBrand, setCarsBrand] = useState([]);
-  const [keyBrand, setKeyBrand] = useState("");
+  const [keyBrand, setKeyBrand] = useState("1");
   const [idCarsBrand, setIdCarsBrand] = useState("");
   const [models, setModels] = useState([]);
   const [modelName, setModelName] = useState("");
   const [idCarsModel, setIdCarsModel] = useState("");
-  const [keyModel, setKeyModel] = useState("");
+  const [keyModel, setKeyModel] = useState("1");
   const [brandId, setBrandId] = useState("");
   const authUser: IAuthUser = JSON.parse(localStorage.getItem("authUser")!);
   const { token } = authUser;
@@ -116,6 +116,7 @@ export const HomePage: React.FC = () => {
           setIdCarsModel={setIdCarsModel}
           setKeyModel={setKeyModel}
           setModelName={setModelName}
+          setBrandId={setBrandId}
         />
       ),
     },
@@ -187,6 +188,7 @@ export const HomePage: React.FC = () => {
           key: _id,
           nameModel,
           name,
+          brandId: brand._id,
         };
         return data;
       });

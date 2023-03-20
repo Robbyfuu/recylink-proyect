@@ -83,10 +83,10 @@ export const CreateOrUpdateBrand:React.FC<ICreateBrand>  = ({keyTab,config,idCar
                   </Col>
                 </Row>
                 <Row className="mt-3">
-                  <Col span={12}>
+                  <Col span={6}>
                     <label>Nombre</label>
                   </Col>
-                  <Col span={12}>
+                  <Col span={18}>
                     <Input
                       placeholder="Ingrese Marca"
                       onChange={(e) => setBrandName(e.target.value)}

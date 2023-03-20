@@ -20,6 +20,7 @@ interface ITableModelsCar {
   setModelName: (name: string) => void;
   config: IConfigHeader;
   setModels: (models: []) => void;
+  setBrandId: (id: string) => void;
 }
 type NotificationType = "success" | "info" | "warning" | "error";
 export const TableModelsCar: React.FC<ITableModelsCar> = ({
@@ -29,6 +30,7 @@ export const TableModelsCar: React.FC<ITableModelsCar> = ({
   setModelName,
   config,
   setModels,
+  setBrandId
 }) => {
   const { confirm } = Modal;
   const [api, contextHolder] = notification.useNotification();
@@ -43,25 +45,7 @@ export const TableModelsCar: React.FC<ITableModelsCar> = ({
       description: description,
     });
   };
-  const deleteBrand = (key: string) => {
-    const response = deleteBrandCar(key, config).then((res) => {
-      if (res.data !== null) {
-        openNotificationWithIcon(
-          "success",
-          "Marca Eliminada",
-          "La marca se elimino correctamente"
-        );
-      } else {
-        openNotificationWithIcon(
-          "error",
-          "Error",
-          "Ocurrio un error al eliminar la marca"
-        );
-      }
-    });
-    setModelName("");
-    return response;
-  };
+
   const showDeleteConfirm = (name: string, key: string) => {
     confirm({
       title: `Estas seguro de eliminar el Modelo ${name}?`,
@@ -79,6 +63,7 @@ export const TableModelsCar: React.FC<ITableModelsCar> = ({
                 key: _id,
                 nameModel,
                 name,
+                brandId: brand._id,
               };
               return data;
             });
@@ -114,6 +99,7 @@ export const TableModelsCar: React.FC<ITableModelsCar> = ({
               setKeyModel("3");
               setIdCarsModel(record.key);
               setModelName(record.nameModel);
+              setBrandId(record.brandId);
             }}
           >
             Update
@@ -138,7 +124,7 @@ export const TableModelsCar: React.FC<ITableModelsCar> = ({
       <div className="container">
         <Row>
           <Col span={24} style={{ textAlign: "center" }}>
-            <h1>Listar Marcas</h1>
+            <h1>Lista de Modelos</h1>
           </Col>
         </Row>
         <Row>

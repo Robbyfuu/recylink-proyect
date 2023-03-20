@@ -85,20 +85,21 @@ export const CreateOrUpdateModelCar: React.FC<Props> = ({
       if (res.data !== null) {
         openNotificationWithIcon(
           "success",
-          "Marca Actualizada",
-          "La marca se actualizo correctamente"
+          "Modelo Actualizado",
+          "El modelo se actualizo correctamente"
         );
       } else {
         setModelName("");
         openNotificationWithIcon(
           "error",
           "Error",
-          "Ocurrio un error al actualizar la marca"
+          "Ocurrio un error al actualizar el modelo"
         );
       }
     });
     setModelName("");
     setIdModelCars("");
+    setBrandId("");
   };
   return (
     <React.Fragment>
@@ -115,7 +116,7 @@ export const CreateOrUpdateModelCar: React.FC<Props> = ({
           </Col>
           <Col span={18}>
             <Input
-              placeholder="Ingrese Marca"
+              placeholder="Ingrese Modelo"
               onChange={(e) => setModelName(e.target.value)}
               value={modelName}
             />
@@ -141,6 +142,7 @@ export const CreateOrUpdateModelCar: React.FC<Props> = ({
                   .localeCompare((optionB?.label ?? "").toLowerCase())
               }
               options={brandCars}
+              value={brandId}
             />
           </Col>
         </Row>
