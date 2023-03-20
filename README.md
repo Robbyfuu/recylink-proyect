@@ -49,6 +49,11 @@ http://localhost/login
 ```
 http://localhost:3000/graphql
 ```
+# Technical Test 1
+Para ejecutar el test 1, ejecutar el siguiente comando
+```
+node technical-test-1.js
+```
 
 ## License
 
